@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="alien" class="org.spring.Spring1.Alien">
+		 
+		<!--<property name="aname" value="Adarsh"></property>
+		<property name="age" value="21"></property>
+		<property name="laptop" ref="lappy"></property>-->
+		
+	
+		<!-- <constructor-arg index="3" type="int" value="12000"></constructor-arg>
+		<constructor-arg index="1" type="int" value="21"></constructor-arg>
+		<constructor-arg index="0" type="String" value="Adarsh"></constructor-arg>
+		<constructor-arg index="2" type="Laptop" ref="lappy"></constructor-arg> -->
+		
+		<!--<constructor-arg name="salary" value="12000"></constructor-arg>
+		<constructor-arg name="age" value="21"></constructor-arg>
+		<constructor-arg name="aname" value="Adarsh"></constructor-arg>
+		<constructor-arg name="laptop" ref="lappy"></constructor-arg>-->
+		
+		<!-- <constructor-arg index="1" type="int" value="21"></constructor-arg>
+		<constructor-arg index="0" type="String" value="Adarsh"></constructor-arg>
+		<constructor-arg index="2" type="Computer" ref="lappy"></constructor-arg> -->
+		
+		<property name="aname" value="Adarsh"></property>
+		<property name="age" value="21"></property>
+		<property name="computer1"> <!-- here ref is not required -->
+			<bean class="org.spring.Spring1.Laptop"> <!-- here id is not required -->
+				<property name="brand" value="MSI"></property>
+			</bean>
+		</property>
+	</bean>
+    
+    <bean id="computer1" class="org.spring.Spring1.Laptop"  lazy-init="true">
+		<property name="brand" value="MSI"></property>
+	</bean>
+	
+	<bean id="computer4" class="org.spring.Spring1.Desktop" primary="true">
+		<property name="brand" value="Lenovo"></property>
+	</bean>
+
+	
+</beans>
